@@ -1,0 +1,43 @@
+name: tripvision
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: tripvision
+      POSTGRES_PASSWORD: tripvision
+      POSTGRES_DB: tripvision
+    ports: ["55432:5432"]  # host 55432: avoids clashing with locally installed PostgreSQL (5432/5433)
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tripvision"]
+      interval: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://tripvision:tripvision@postgres:5432/tripvision
+      REDIS_URL: redis://redis:6379/0
+      FRONTEND_URL: http://localhost:8080
+    ports: ["8000:8000"]
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+
+  frontend:
+    build: ./frontend
+    ports: ["8080:80"]
+    depends_on: [backend]
+
+volumes:
+  pgdata:

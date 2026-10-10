@@ -1,0 +1,581 @@
+{
+ "directions": [
+  {
+   "travel_mode": "Transit",
+   "start_time": "12:15 PM",
+   "end_time": "9:38 PM",
+   "distance": 2115108,
+   "duration": 120201,
+   "formatted_distance": "2,115 km",
+   "formatted_duration": "1 day 9 hr",
+   "icon": "https://serpapi.com/assets/google_maps_directions/transit.svg",
+   "trips": [
+    {
+     "travel_mode": "Transit",
+     "title": "12919 - Malwa SF Express 12919 SMVD Katra",
+     "duration": 18300,
+     "formatted_duration": "5 hr 5 min",
+     "start_stop": {
+      "name": "Indore Junction",
+      "stop_id": "INDB",
+      "time": "12:23 PM",
+      "data_id": "0x3962fd1175bed6b5:0x2c1d732ce5412d"
+     },
+     "end_stop": {
+      "name": "Nishatpura",
+      "stop_id": "NSZ",
+      "time": "5:22 PM",
+      "data_id": "0x397c684ba13c07d5:0xde2136659c881e0"
+     },
+     "stops": [
+      {
+       "name": "Dewas Junction",
+       "stop_id": "DWX",
+       "time": "12:55 PM",
+       "data_id": "0x396317bcc27660cd:0xdbd283a9ebf7743a"
+      },
+      {
+       "name": "Ujjain Junction",
+       "stop_id": "UJN",
+       "time": "2:14 PM",
+       "data_id": "0x396374416d07d67d:0xb10cfe8d00601e97"
+      },
+      {
+       "name": "Maksi Junction",
+       "stop_id": "MKC",
+       "time": "2:52 PM",
+       "data_id": "0x396343e89db047c7:0xa79282969259f7c1"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/rail2.svg",
+     "service_run_by": {
+      "name": "Indian Railways",
+      "link": "http://www.indianrail.gov.in/"
+     }
+    },
+    {
+     "travel_mode": "Walking",
+     "title": "Walk",
+     "duration": 1800,
+     "formatted_duration": "30 min",
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg"
+    },
+    {
+     "travel_mode": "Transit",
+     "title": "12622 - Tamil Nadu Express 12622 MGR Chennai Central",
+     "duration": 85500,
+     "formatted_duration": "23 hr 45 min",
+     "start_stop": {
+      "name": "Bhopal Jn.",
+      "stop_id": "BPL",
+      "time": "6:20 PM",
+      "data_id": "0x397c683060e9aceb:0xefd1f36eaca53265"
+     },
+     "end_stop": {
+      "name": "Puratchi Thalaivar Dr. MGR CTL",
+      "stop_id": "MAS",
+      "time": "4:45 PM",
+      "data_id": "0x3a5265ffa1216265:0x47ee704562150916"
+     },
+     "stops": [
+      {
+       "name": "Itarsi Junction",
+       "stop_id": "ET",
+       "time": "7:50 PM",
+       "data_id": "0x397ddcbdde9818c3:0x4d3944fc57337406"
+      },
+      {
+       "name": "Nagpur Junction railway station",
+       "stop_id": "NGP",
+       "time": "12:20 AM",
+       "data_id": "0x3bd4c0c245241469:0x82003fb2dcc4943c"
+      },
+      {
+       "name": "Balharshah Junction",
+       "stop_id": "BPQ",
+       "time": "3:35 AM",
+       "data_id": "0x3bd2d2edc730269f:0xf569a5eef546139c"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/rail2.svg",
+     "service_run_by": {
+      "name": "Indian Railways",
+      "link": "http://www.indianrail.gov.in/"
+     }
+    },
+    {
+     "travel_mode": "Transit",
+     "title": "20607 - Mysuru Vande Bharat Express 20664 Mysuru Junction (Mysore)",
+     "duration": 13680,
+     "formatted_duration": "3 hr 48 min",
+     "start_stop": {
+      "name": "Puratchi Thalaivar Dr. MGR CTL",
+      "stop_id": "MAS",
+      "time": "5:00 PM",
+      "data_id": "0x3a5265ffa1216265:0x47ee704562150916"
+     },
+     "end_stop": {
+      "name": "Krishnarajapuram",
+      "stop_id": "KJM",
+      "time": "8:48 PM",
+      "data_id": "0x3bae113dc082a1d1:0x5520ab11e1208961"
+     },
+     "stops": [
+      {
+       "name": "Katpadi Junction",
+       "stop_id": "KPD",
+       "time": "6:25 PM",
+       "data_id": "0x3bad47139be78f11:0xfe4dca49bfc3cea1"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/rail2.svg",
+     "service_run_by": {
+      "name": "Indian Railways",
+      "link": "http://www.indianrail.gov.in/"
+     }
+    },
+    {
+     "travel_mode": "Walking",
+     "title": "Walk",
+     "duration": 250,
+     "formatted_duration": "4 min",
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg"
+    },
+    {
+     "travel_mode": "Transit",
+     "title": "V-EXP 500D Hebbal Bridge",
+     "duration": 1739,
+     "formatted_duration": "29 min",
+     "start_stop": {
+      "name": "K R Pura Metro Station",
+      "time": "8:56 PM",
+      "data_id": "0x3bae113df809d04b:0xaf4b449c61afd990"
+     },
+     "end_stop": {
+      "name": "Manyatha Tech Park",
+      "time": "9:25 PM",
+      "data_id": "0x3bae176dc3b5f547:0xe7ce33098f448692"
+     },
+     "stops": [
+      {
+       "name": "Tin Factory",
+       "time": "9:00 PM",
+       "data_id": "0x3bae113902cff7df:0xc4d3b443d93a9b6d"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/bus2.svg",
+     "service_run_by": {
+      "name": "Bengaluru Metropolitan Transport Corporation",
+      "link": "https://mybmtc.karnataka.gov.in/english"
+     }
+    },
+    {
+     "travel_mode": "Walking",
+     "title": "Walk",
+     "distance": 882,
+     "duration": 753,
+     "formatted_distance": "900 m",
+     "formatted_duration": "13 min",
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg"
+    }
+   ]
+  },
+  {
+   "travel_mode": "Transit",
+   "start_time": "12:15 PM",
+   "end_time": "9:51 PM",
+   "distance": 2115363,
+   "duration": 121015,
+   "formatted_distance": "2,115 km",
+   "formatted_duration": "1 day 10 hr",
+   "icon": "https://serpapi.com/assets/google_maps_directions/transit.svg",
+   "trips": [
+    {
+     "travel_mode": "Transit",
+     "title": "12919 - Malwa SF Express 12919 SMVD Katra",
+     "duration": 18300,
+     "formatted_duration": "5 hr 5 min",
+     "start_stop": {
+      "name": "Indore Junction",
+      "stop_id": "INDB",
+      "time": "12:23 PM",
+      "data_id": "0x3962fd1175bed6b5:0x2c1d732ce5412d"
+     },
+     "end_stop": {
+      "name": "Nishatpura",
+      "stop_id": "NSZ",
+      "time": "5:22 PM",
+      "data_id": "0x397c684ba13c07d5:0xde2136659c881e0"
+     },
+     "stops": [
+      {
+       "name": "Dewas Junction",
+       "stop_id": "DWX",
+       "time": "12:55 PM",
+       "data_id": "0x396317bcc27660cd:0xdbd283a9ebf7743a"
+      },
+      {
+       "name": "Ujjain Junction",
+       "stop_id": "UJN",
+       "time": "2:14 PM",
+       "data_id": "0x396374416d07d67d:0xb10cfe8d00601e97"
+      },
+      {
+       "name": "Maksi Junction",
+       "stop_id": "MKC",
+       "time": "2:52 PM",
+       "data_id": "0x396343e89db047c7:0xa79282969259f7c1"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/rail2.svg",
+     "service_run_by": {
+      "name": "Indian Railways",
+      "link": "http://www.indianrail.gov.in/"
+     }
+    },
+    {
+     "travel_mode": "Walking",
+     "title": "Walk",
+     "duration": 1800,
+     "formatted_duration": "30 min",
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg"
+    },
+    {
+     "travel_mode": "Transit",
+     "title": "12622 - Tamil Nadu Express 12622 MGR Chennai Central",
+     "duration": 85500,
+     "formatted_duration": "23 hr 45 min",
+     "start_stop": {
+      "name": "Bhopal Jn.",
+      "stop_id": "BPL",
+      "time": "6:20 PM",
+      "data_id": "0x397c683060e9aceb:0xefd1f36eaca53265"
+     },
+     "end_stop": {
+      "name": "Puratchi Thalaivar Dr. MGR CTL",
+      "stop_id": "MAS",
+      "time": "4:45 PM",
+      "data_id": "0x3a5265ffa1216265:0x47ee704562150916"
+     },
+     "stops": [
+      {
+       "name": "Itarsi Junction",
+       "stop_id": "ET",
+       "time": "7:50 PM",
+       "data_id": "0x397ddcbdde9818c3:0x4d3944fc57337406"
+      },
+      {
+       "name": "Nagpur Junction railway station",
+       "stop_id": "NGP",
+       "time": "12:20 AM",
+       "data_id": "0x3bd4c0c245241469:0x82003fb2dcc4943c"
+      },
+      {
+       "name": "Balharshah Junction",
+       "stop_id": "BPQ",
+       "time": "3:35 AM",
+       "data_id": "0x3bd2d2edc730269f:0xf569a5eef546139c"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/rail2.svg",
+     "service_run_by": {
+      "name": "Indian Railways",
+      "link": "http://www.indianrail.gov.in/"
+     }
+    },
+    {
+     "travel_mode": "Transit",
+     "title": "20607 - Mysuru Vande Bharat Express 20664 Mysuru Junction (Mysore)",
+     "duration": 13680,
+     "formatted_duration": "3 hr 48 min",
+     "start_stop": {
+      "name": "Puratchi Thalaivar Dr. MGR CTL",
+      "stop_id": "MAS",
+      "time": "5:00 PM",
+      "data_id": "0x3a5265ffa1216265:0x47ee704562150916"
+     },
+     "end_stop": {
+      "name": "Krishnarajapuram",
+      "stop_id": "KJM",
+      "time": "8:48 PM",
+      "data_id": "0x3bae113dc082a1d1:0x5520ab11e1208961"
+     },
+     "stops": [
+      {
+       "name": "Katpadi Junction",
+       "stop_id": "KPD",
+       "time": "6:25 PM",
+       "data_id": "0x3bad47139be78f11:0xfe4dca49bfc3cea1"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/rail2.svg",
+     "service_run_by": {
+      "name": "Indian Railways",
+      "link": "http://www.indianrail.gov.in/"
+     }
+    },
+    {
+     "travel_mode": "Walking",
+     "title": "Walk",
+     "duration": 122,
+     "formatted_duration": "2 min",
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg"
+    },
+    {
+     "travel_mode": "Transit",
+     "title": "507 Peenya 2nd Stage",
+     "duration": 1991,
+     "formatted_duration": "33 min",
+     "start_stop": {
+      "name": "KR Puram Railway Station",
+      "time": "9:06 PM",
+      "data_id": "0x3bae111646e08d17:0x55fe0a991561a69b"
+     },
+     "end_stop": {
+      "name": "Manyatha Tech Park",
+      "time": "9:39 PM",
+      "data_id": "0x3bae176dc3b5f547:0xe7ce33098f448692"
+     },
+     "stops": [
+      {
+       "name": "ITI Colony Gate",
+       "time": "9:09 PM",
+       "data_id": "0x3bae111a78943311:0xc7bf007b70882ab7"
+      },
+      {
+       "name": "ITI Circle",
+       "time": "9:10 PM",
+       "data_id": "0x3bae111a338e797b:0xb3b8e7c90fd465c"
+      },
+      {
+       "name": "Ramamurthy Nagara Church",
+       "time": "9:12 PM",
+       "data_id": "0x3bae111f3ae15f93:0x2eb1f9e6ecfff33a"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/bus2.svg",
+     "service_run_by": {
+      "name": "Bengaluru Metropolitan Transport Corporation",
+      "link": "https://mybmtc.karnataka.gov.in/english"
+     }
+    },
+    {
+     "travel_mode": "Walking",
+     "title": "Walk",
+     "distance": 882,
+     "duration": 753,
+     "formatted_distance": "900 m",
+     "formatted_duration": "12 min",
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg"
+    }
+   ]
+  },
+  {
+   "travel_mode": "Transit",
+   "start_time": "6:10 AM",
+   "end_time": "4:58 PM",
+   "distance": 2085269,
+   "duration": 125301,
+   "formatted_distance": "2,085 km",
+   "formatted_duration": "1 day 11 hr",
+   "icon": "https://serpapi.com/assets/google_maps_directions/transit.svg",
+   "trips": [
+    {
+     "travel_mode": "Transit",
+     "title": "20911 - Nagpur Vande Bharat Express 20911 Nagpur Junction",
+     "duration": 30300,
+     "formatted_duration": "8 hr 25 min",
+     "start_stop": {
+      "name": "Indore Junction",
+      "stop_id": "INDB",
+      "time": "6:30 AM",
+      "data_id": "0x3962fd1175bed6b5:0x2c1d732ce5412d"
+     },
+     "end_stop": {
+      "name": "Nagpur Junction railway station",
+      "stop_id": "NGP",
+      "time": "2:15 PM",
+      "data_id": "0x3bd4c0c245241469:0x82003fb2dcc4943c"
+     },
+     "stops": [
+      {
+       "name": "Ujjain Junction",
+       "stop_id": "UJN",
+       "time": "7:19 AM",
+       "data_id": "0x396374416d07d67d:0xb10cfe8d00601e97"
+      },
+      {
+       "name": "Bhopal Jn.",
+       "stop_id": "BPL",
+       "time": "9:23 AM",
+       "data_id": "0x397c683060e9aceb:0xefd1f36eaca53265"
+      },
+      {
+       "name": "Narmadapuram Railway Station",
+       "stop_id": "NDPM",
+       "time": "10:24 AM",
+       "data_id": "0x397dcfa02d0ef84f:0x553c03840bc0cda1"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/rail2.svg",
+     "service_run_by": {
+      "name": "Indian Railways",
+      "link": "http://www.indianrail.gov.in/"
+     }
+    },
+    {
+     "travel_mode": "Transit",
+     "title": "12296 - Sanghamitra SF Express 12296 SMVT Bengaluru",
+     "duration": 81240,
+     "formatted_duration": "22 hr 34 min",
+     "start_stop": {
+      "name": "Nagpur Junction railway station",
+      "stop_id": "NGP",
+      "time": "4:25 PM",
+      "data_id": "0x3bd4c0c245241469:0x82003fb2dcc4943c"
+     },
+     "end_stop": {
+      "name": "Krishnarajapuram",
+      "stop_id": "KJM",
+      "time": "4:07 PM",
+      "data_id": "0x3bae113dc082a1d1:0x5520ab11e1208961"
+     },
+     "stops": [
+      {
+       "name": "Sewagram Junction",
+       "stop_id": "SEGM",
+       "time": "5:20 PM",
+       "data_id": "0x3bd47fa26f7a9395:0xa1fd6232fd13a6fc"
+      },
+      {
+       "name": "Chandrapur",
+       "stop_id": "CD",
+       "time": "7:01 PM",
+       "data_id": "0x3bd2d5d2bbcb8b49:0xc3fe06dfcb8e4778"
+      },
+      {
+       "name": "Balharshah Junction",
+       "stop_id": "BPQ",
+       "time": "8:10 PM",
+       "data_id": "0x3bd2d2edc730269f:0xf569a5eef546139c"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/rail2.svg",
+     "service_run_by": {
+      "name": "Indian Railways",
+      "link": "http://www.indianrail.gov.in/"
+     }
+    },
+    {
+     "travel_mode": "Walking",
+     "title": "Walk",
+     "duration": 250,
+     "formatted_duration": "4 min",
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg"
+    },
+    {
+     "travel_mode": "Transit",
+     "title": "V-EXP 500D Hebbal Bridge",
+     "duration": 1739,
+     "formatted_duration": "29 min",
+     "start_stop": {
+      "name": "K R Pura Metro Station",
+      "time": "4:16 PM",
+      "data_id": "0x3bae113df809d04b:0xaf4b449c61afd990"
+     },
+     "end_stop": {
+      "name": "Manyatha Tech Park",
+      "time": "4:45 PM",
+      "data_id": "0x3bae176dc3b5f547:0xe7ce33098f448692"
+     },
+     "stops": [
+      {
+       "name": "Tin Factory",
+       "time": "4:20 PM",
+       "data_id": "0x3bae113902cff7df:0xc4d3b443d93a9b6d"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/bus2.svg",
+     "service_run_by": {
+      "name": "Bengaluru Metropolitan Transport Corporation",
+      "link": "https://mybmtc.karnataka.gov.in/english"
+     }
+    },
+    {
+     "travel_mode": "Walking",
+     "title": "Walk",
+     "distance": 882,
+     "duration": 753,
+     "formatted_distance": "900 m",
+     "formatted_duration": "13 min",
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg"
+    }
+   ]
+  },
+  {
+   "travel_mode": "Transit",
+   "start_time": "2:00 PM",
+   "end_time": "6:42 PM",
+   "distance": 1468000,
+   "duration": 103320,
+   "formatted_distance": "1,468 km",
+   "formatted_duration": "1 day 4 hr",
+   "trips": [
+    {
+     "travel_mode": "Transit",
+     "title": "Indore → Bengaluru AC sleeper (illustrative demo service)",
+     "duration": 99600,
+     "start_stop": {
+      "name": "Indore (Vijay Nagar)",
+      "time": "2:00 PM"
+     },
+     "end_stop": {
+      "name": "Hebbal",
+      "time": "5:40 PM"
+     },
+     "stops": [
+      {
+       "name": "Nagpur"
+      },
+      {
+       "name": "Hyderabad"
+      }
+     ],
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/bus2.svg",
+     "service_run_by": {
+      "name": "Intercity sleeper operator (demo)"
+     }
+    },
+    {
+     "travel_mode": "Walking",
+     "title": "Walk",
+     "duration": 360
+    },
+    {
+     "travel_mode": "Transit",
+     "title": "290E Manyata Tech Park",
+     "duration": 1500,
+     "start_stop": {
+      "name": "Hebbal Bus Stop",
+      "time": "5:52 PM"
+     },
+     "end_stop": {
+      "name": "Manyatha Tech Park",
+      "time": "6:17 PM"
+     },
+     "icon": "https://maps.gstatic.com/mapfiles/transit/iw2/svg/bus2.svg",
+     "service_run_by": {
+      "name": "Bengaluru Metropolitan Transport Corporation"
+     }
+    },
+    {
+     "travel_mode": "Walking",
+     "title": "Walk",
+     "duration": 600,
+     "distance": 700
+    }
+   ]
+  }
+ ],
+ "_note": "DEMO MODE ONLY. Train options are a recorded Google Maps transit response (via SerpApi) for Indore -> Manyata Tech Park, re-anchored to the mission date. The bus option is illustrative."
+}

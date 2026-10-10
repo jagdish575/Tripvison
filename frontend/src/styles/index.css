@@ -1,0 +1,142 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/newsreader";
+@import "@fontsource-variable/newsreader/wght-italic.css";
+
+/* ------------------------------------------------------------------ design tokens (docs/UI_UX.md) */
+@theme {
+  --color-ink: #0b1220;
+  --color-ink-2: #131c2e;
+  --color-ink-3: #1e293b;
+  --color-fg: #0f172a;
+  --color-muted: #64748b;
+  --color-subtle: #94a3b8;
+  --color-line: #e2e8f0;
+  --color-line-strong: #cbd5e1;
+  --color-paper: #f8fafc;
+  --color-paper-2: #f1f5f9;
+  --color-surface: #ffffff;
+
+  --color-blue: #2563eb;
+  --color-blue-ink: #1d4ed8;
+  --color-blue-wash: #eff6ff;
+  --color-amber: #f59e0b;
+  --color-amber-ink: #b45309;
+  --color-amber-wash: #fffbeb;
+  --color-green: #16a34a;
+  --color-green-ink: #15803d;
+  --color-green-wash: #f0fdf4;
+  --color-red: #dc2626;
+  --color-red-ink: #b91c1c;
+  --color-red-wash: #fef2f2;
+
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Newsreader Variable", "Iowan Old Style", Georgia, serif;
+
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --shadow-float: 0 1px 2px rgb(15 23 42 / 0.06), 0 8px 24px -12px rgb(15 23 42 / 0.18);
+  --shadow-press: inset 0 1px 0 rgb(255 255 255 / 0.12);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-fg font-sans;
+    overflow-x: hidden;
+    font-feature-settings: "cv11", "ss01";
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  ::selection {
+    background: #dbeafe;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  h1, h2, h3, h4 {
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: 0.55;
+    cursor: pointer;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum", "cv11";
+  }
+  .eyebrow {
+    @apply text-[11.5px] font-semibold uppercase tracking-[0.08em] text-muted;
+  }
+  .display {
+    @apply font-serif font-normal tracking-[-0.015em];
+    font-optical-sizing: auto;
+  }
+  /* Full-width backgrounds, centred content: wide enough to use desktop space, never stretched text. */
+  .container-page {
+    @apply mx-auto w-full max-w-[2200px] px-4 sm:px-6 lg:px-10 xl:px-14 2xl:px-16;
+  }
+  .card {
+    @apply rounded-md border border-line bg-surface;
+  }
+  .hairline {
+    @apply border-line;
+  }
+  .field-input {
+    @apply h-11 w-full rounded-sm border border-line-strong bg-surface px-3 text-[15px] text-fg placeholder:text-subtle
+      transition-colors hover:border-subtle focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/15;
+  }
+  .field-input[aria-invalid="true"] {
+    @apply border-red focus:ring-red/15;
+  }
+  .link {
+    @apply text-blue underline decoration-blue/30 underline-offset-[3px] transition-colors hover:decoration-blue;
+  }
+}
+
+/* Leaflet: quieter controls to match the product */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: #eef2f6;
+}
+.leaflet-control-attribution {
+  font-size: 10px !important;
+  background: rgb(255 255 255 / 0.8) !important;
+}
+.leaflet-bar a {
+  color: var(--color-fg) !important;
+}
+
+/* calmer OSM basemap so the route markers carry the colour */
+.tm-tiles {
+  filter: grayscale(0.85) contrast(0.92) brightness(1.04);
+}
