@@ -14,8 +14,11 @@ export function HeroTicket() {
   return (
     <motion.figure initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
       className="relative mx-auto w-full max-w-[400px]" aria-label="Example result">
-      <div className="overflow-hidden rounded-lg border border-ink/90 bg-surface shadow-[var(--shadow-float)]">
-        <div className="bg-ink px-6 pb-5 pt-5 text-white">
+      <div aria-hidden className="bg-brand animate-gradient absolute -inset-4 -z-10 rounded-[32px] opacity-40 blur-2xl" />
+      <motion.div whileHover={{ rotate: -1.5, scale: 1.02 }} transition={{ type: "spring", stiffness: 200, damping: 18 }}
+        className="animate-float">
+      <div className="overflow-hidden rounded-2xl border border-white/70 bg-surface shadow-[var(--shadow-lift)]">
+        <div className="bg-gradient-to-br from-night via-[#13285a] to-[#1e3a8a] px-6 pb-5 pt-5 text-white">
           <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.1em] text-white/50">
             <span>Mission</span><span>Thu · 9 Oct</span>
           </div>
@@ -65,6 +68,7 @@ export function HeroTicket() {
           </dl>
         </div>
       </div>
+      </motion.div>
       <figcaption className="mt-3 text-center text-[12px] text-subtle">Example result from the demo scenario</figcaption>
     </motion.figure>
   );

@@ -6,7 +6,7 @@ import json
 from functools import lru_cache
 from pathlib import Path
 
-from pydantic import AliasChoices, Field, field_validator
+from pydantic import AliasChoices, Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 BACKEND_DIR = Path(__file__).resolve().parents[2]
@@ -42,13 +42,19 @@ class Settings(BaseSettings):
     # Storage
     database_url: str = f"sqlite:///{(BACKEND_DIR / 'tripvision.db').as_posix()}"
     redis_url: str = ""
+    # Persistent folder provided by some hosts (e.g. Embarko's DATA_DIR). When set and DATABASE_URL isn't,
+    # the SQLite database lives there so it survives redeploys.
+    data_dir: str = ""
+    # Built frontend (frontend/dist) served by this API in single-process deployments. Missing folder = API only.
+    static_dir: str = str(BACKEND_DIR / "static")
 
-    # AI explanation (optional). Providers: "anthropic" or "euri" (OpenAI-compatible chat completions).
+    # AI explanation (optional). Providers: "anthropic", or "openrouter" / "euri"
+    # (OpenAI-compatible chat completions at AI_BASE_URL).
     ai_provider: str = "anthropic"
     ai_api_key: str = ""
     ai_model: str = "claude-opus-5-5"
     ai_model_fast: str = ""  # optional fallback model, tried if the main model fails
-    ai_base_url: str = "https://api.euron.one/api/v1/euri"
+    ai_base_url: str = "https://openrouter.ai/api/v1"
     ai_timeout_seconds: float = 30.0
 
     # Email (optional). EMAIL_PROVIDER: auto | smtp | resend | preview
@@ -117,6 +123,15 @@ class Settings(BaseSettings):
         if value in (None, "") or (isinstance(value, str) and not value.strip()):
             return cls.model_fields[info.field_name].default
         return value
+
+    @model_validator(mode="after")
+    def _database_in_data_dir(self) -> "Settings":
+        default = type(self).model_fields["database_url"].default
+        if self.data_dir.strip() and self.database_url == default:
+            folder = Path(self.data_dir.strip())
+            folder.mkdir(parents=True, exist_ok=True)
+            self.database_url = f"sqlite:///{(folder / 'tripmission.db').as_posix()}"
+        return self
 
     @field_validator("session_cookie_secure", mode="before")
     @classmethod

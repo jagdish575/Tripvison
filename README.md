@@ -8,7 +8,7 @@ flights, **train and bus schedules**, road routes, hotels, maps, places and revi
 every complete journey (flight / train / bus / road + hotel + timed transfers), costs it all-in, scores it,
 analyses what could go wrong, and recommends the one you should take — then keeps you posted by email.
 
-Built for the **SerpApi India Hackathon 2026 — Travel & Local Discovery** track.
+Built for the **Hacktoberfest 2026** event — Travel & Local Discovery.
 
 ![Results](docs/screenshots/results.png)
 
@@ -221,6 +221,6 @@ flexible-destination missions via Travel Explore · calendar import · shared mi
 
 ## Hackathon
 
-SerpApi India Hackathon 2026 — **Travel & Local Discovery**: *help people decide where to go and how to get there
+Hacktoberfest 2026 — **Travel & Local Discovery**: *help people decide where to go and how to get there
 using current flights, hotels, maps, places, reviews, and destination data.* TripMission focuses on the
 **decide**.

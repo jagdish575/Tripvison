@@ -5,7 +5,10 @@ import { Logo } from "./Logo";
 export function Footer() {
   const plan = usePlanMission();
   return (
-    <footer className="mt-auto bg-ink text-white/70">
+    <footer className="relative isolate mt-auto overflow-hidden bg-night text-white/70">
+      <span aria-hidden className="bg-stars absolute inset-0 -z-10 opacity-60" />
+      <span aria-hidden className="bg-brand animate-gradient absolute inset-x-0 top-0 h-px" />
+      <span aria-hidden className="aurora-blob -bottom-48 -right-32 -z-10 size-96 bg-coral/25" />
       <div className="container-page grid gap-10 py-14 md:grid-cols-12">
         <div className="md:col-span-5">
           <Logo inverse />

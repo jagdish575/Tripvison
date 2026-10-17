@@ -64,7 +64,7 @@ export function PlanPage() {
     <form onSubmit={submit} noValidate className="container-page pb-32 pt-8 sm:pt-10 lg:pb-20">
       <header className="max-w-3xl">
         <p className="eyebrow">New mission</p>
-        <h1 className="display mt-2 text-[32px] leading-[1.1] sm:text-[40px] lg:text-[44px]">What do you need to make it to?</h1>
+        <h1 className="display mt-2 text-[32px] leading-[1.1] sm:text-[40px] lg:text-[44px]">What do you need to <span className="text-gradient italic">make it to?</span></h1>
         <p className="mt-3 text-[15px] text-muted sm:text-[15.5px]">
           Tell us the deadline and the limits. We'll compare every complete door-to-door journey — flight, train, bus or
           road, hotel and transfers — even if your destination has no airport.

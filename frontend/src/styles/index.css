@@ -42,6 +42,66 @@
   --shadow-press: inset 0 1px 0 rgb(255 255 255 / 0.12);
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Sky & Sunrise: night-sky navy, sunrise coral/amber, daytime sky blue */
+  --color-night: #0b1b3a;
+  --color-night-2: #13285a;
+  --color-coral: #f0643f;
+  --color-coral-ink: #c2410c;
+  --color-coral-wash: #fff1ec;
+  --color-sunrise: #ffb547;
+  --color-sky: #4fa3ff;
+  --color-sky-wash: #eaf4ff;
+  --shadow-glow: 0 10px 30px -10px rgb(240 100 63 / 0.5);
+  --shadow-lift: 0 1px 2px rgb(15 23 42 / 0.05), 0 22px 44px -18px rgb(11 27 58 / 0.3);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-gradient: gradient-pan 8s ease infinite;
+  --animate-blob: blob 18s ease-in-out infinite;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-ping-soft: ping-soft 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animate-cloud: cloud-drift 90s linear infinite;
+  --animate-twinkle: twinkle 4s ease-in-out infinite;
+  --animate-puff: puff 1.1s ease-out infinite;
+
+  @keyframes puff {
+    0% { transform: translate(0, 0) scale(0.4); opacity: 0.95; }
+    100% { transform: translate(-72px, -22px) scale(3); opacity: 0; }
+  }
+
+  @keyframes cloud-drift {
+    from { transform: translateX(-30vw); }
+    to { transform: translateX(130vw); }
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 0.35; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(-0.6deg); }
+  }
+  @keyframes gradient-pan {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  @keyframes blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -50px) scale(1.12); }
+    66% { transform: translate(-30px, 30px) scale(0.92); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes ping-soft {
+    75%, 100% { transform: scale(2.4); opacity: 0; }
+  }
+  @keyframes shine {
+    from { transform: translateX(-120%) skewX(-20deg); }
+    to { transform: translateX(220%) skewX(-20deg); }
+  }
 }
 
 @layer base {
@@ -59,7 +119,7 @@
     line-height: 1.55;
   }
   ::selection {
-    background: #dbeafe;
+    background: #ffe0d4;
   }
   :focus-visible {
     outline: 2px solid var(--color-blue);
@@ -120,6 +180,103 @@
   }
   .link {
     @apply text-blue underline decoration-blue/30 underline-offset-[3px] transition-colors hover:decoration-blue;
+  }
+
+  /* ---------------------------------------------------------------- modern surface kit */
+  .text-gradient {
+    background: linear-gradient(100deg, var(--color-coral), #e8590c 40%, #f59e0b 70%, var(--color-coral));
+    background-size: 220% 220%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: var(--animate-gradient);
+  }
+  /* decorative sunrise stroke: lines, bars, progress */
+  .bg-brand {
+    background: linear-gradient(110deg, var(--color-sky), var(--color-coral) 55%, var(--color-sunrise));
+    background-size: 200% 200%;
+  }
+  /* primary actions: deep night sky that glows warm on hover */
+  .bg-night {
+    background: linear-gradient(110deg, var(--color-night), #1e3a8a 50%, var(--color-night));
+    background-size: 200% 200%;
+  }
+  .bg-sunset {
+    background: linear-gradient(115deg, var(--color-night) 0%, #24346e 35%, #8a3b6b 62%, var(--color-coral) 84%, var(--color-sunrise) 100%);
+    background-size: 160% 160%;
+  }
+  /* dawn: blue sky fading into a warm horizon, with the sun just rising bottom-right */
+  .bg-dawn {
+    background:
+      radial-gradient(ellipse 45% 40% at 85% 100%, rgb(255 181 71 / 0.45), transparent 70%),
+      radial-gradient(ellipse 60% 50% at 60% 105%, rgb(240 100 63 / 0.22), transparent 70%),
+      linear-gradient(180deg, #d6e9ff 0%, #eaf4ff 35%, #fff4ea 78%, var(--color-paper) 100%);
+  }
+  /* small scattered stars for night surfaces */
+  .bg-stars {
+    background-image:
+      radial-gradient(1.2px 1.2px at 12% 22%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 28% 68%, #fff 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 46% 14%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 63% 48%, #fff 50%, transparent 51%),
+      radial-gradient(1.2px 1.2px at 78% 26%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 88% 72%, #fff 50%, transparent 51%),
+      radial-gradient(1.3px 1.3px at 6% 82%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 54% 88%, #fff 50%, transparent 51%);
+    background-size: 340px 220px;
+    animation: var(--animate-twinkle);
+  }
+  .glass {
+    @apply border border-white/60 bg-white/70 backdrop-blur-xl;
+  }
+  /* soft dotted grid that fades out towards the edges */
+  .bg-dots {
+    background-image: radial-gradient(rgb(11 27 58 / 0.10) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+  }
+  .aurora-blob {
+    @apply pointer-events-none absolute rounded-full blur-3xl animate-blob;
+  }
+  /* card that lifts and picks up a gradient edge on hover */
+  .card-hover {
+    @apply relative transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:shadow-[var(--shadow-lift)];
+  }
+  .card-hover::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(130deg, var(--color-sky), var(--color-coral), var(--color-sunrise));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .card-hover:hover::before {
+    opacity: 1;
+  }
+  /* light sweep across primary buttons */
+  .btn-shine {
+    @apply relative overflow-hidden;
+  }
+  .btn-shine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 40%;
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.35), transparent);
+    transform: translateX(-120%) skewX(-20deg);
+    pointer-events: none;
+  }
+  .btn-shine:hover::after {
+    animation: shine 0.9s ease;
+  }
+  .marquee-mask {
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
   }
 }
 

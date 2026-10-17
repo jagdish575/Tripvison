@@ -22,3 +22,6 @@ frontend/screenshots/
 .idea/
 .DS_Store
 Thumbs.db
+
+# built frontend copied in for single-process deploys
+backend/static/

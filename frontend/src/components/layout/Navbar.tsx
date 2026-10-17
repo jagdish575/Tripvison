@@ -112,13 +112,24 @@ function ProfileMenu({ user }: { user: User }) {
   );
 }
 
+const navLink = "relative rounded-sm px-3 py-2 text-[14px] font-medium transition-colors hover:text-ink " +
+  "after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full " +
+  "after:bg-gradient-to-r after:from-blue after:to-coral after:transition-transform after:duration-300 hover:after:scale-x-100";
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { user, requireAuth, signOut } = useAuth();
   const plan = usePlanMission();
   useEffect(() => setOpen(false), [location.pathname, location.search, location.hash]);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
@@ -130,7 +141,10 @@ export function Navbar() {
   const isActive = (to: string) => (to.startsWith("/#") ? false : location.pathname === to);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/80 bg-paper/85 backdrop-blur-md supports-[backdrop-filter]:bg-paper/75">
+    <header className={cx("sticky top-0 z-40 border-b backdrop-blur-xl transition-[background-color,box-shadow,border-color] duration-300",
+      scrolled ? "border-white/60 bg-white/75 shadow-[0_8px_30px_-16px_rgb(30_27_75_/_0.25)]" : "border-transparent bg-paper/40")}>
+      <span aria-hidden className={cx("bg-brand absolute inset-x-0 bottom-0 h-px animate-gradient transition-opacity duration-300",
+        scrolled ? "opacity-70" : "opacity-0")} />
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-sm focus:bg-ink focus:px-3 focus:py-2 focus:text-white">
         Skip to content
       </a>
@@ -142,14 +156,12 @@ export function Navbar() {
           {LINKS.map((l) => (
             l.auth ? (
               <button key={l.to} type="button" onClick={() => go(l.to, true)}
-                className={cx("rounded-sm px-3 py-2 text-[14px] font-medium transition-colors hover:text-ink",
-                  isActive(l.to) ? "text-ink" : "text-muted")}>
+                className={cx(navLink, isActive(l.to) ? "text-ink after:scale-x-100" : "text-muted")}>
                 {l.label}
               </button>
             ) : (
               <NavLink key={l.to} to={l.to}
-                className={cx("rounded-sm px-3 py-2 text-[14px] font-medium transition-colors hover:text-ink",
-                  isActive(l.to) ? "text-ink" : "text-muted")}>
+                className={cx(navLink, isActive(l.to) ? "text-ink after:scale-x-100" : "text-muted")}>
                 {l.label}
               </NavLink>
             )

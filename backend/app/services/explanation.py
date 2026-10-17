@@ -266,8 +266,8 @@ class AIExplainer:
         return text or None
 
 
-class EuriExplainer:
-    """EURI (euron.one) — OpenAI-compatible chat completions. Tries AI_MODEL, then AI_MODEL_FAST."""
+class ChatCompletionsExplainer:
+    """OpenAI-compatible chat completions (OpenRouter, EURI, ...). Tries AI_MODEL, then AI_MODEL_FAST."""
 
     def __init__(self, settings: Settings) -> None:
         self.models = [m for m in (settings.ai_model, settings.ai_model_fast) if m]
@@ -292,15 +292,15 @@ class EuriExplainer:
                         json={"model": model, "messages": payload_messages, "max_tokens": 400},
                     )
                 except httpx.HTTPError as exc:
-                    log.warning("euri request failed", extra={"context": {"model": model, "error": type(exc).__name__}})
+                    log.warning("ai request failed", extra={"context": {"model": model, "error": type(exc).__name__}})
                     continue
                 if response.status_code != 200:
-                    log.warning("euri error", extra={"context": {"model": model, "status": response.status_code}})
+                    log.warning("ai provider error", extra={"context": {"model": model, "status": response.status_code}})
                     continue
                 try:
                     text = response.json()["choices"][0]["message"]["content"]
                 except (ValueError, KeyError, IndexError, TypeError):
-                    log.warning("euri malformed response", extra={"context": {"model": model}})
+                    log.warning("ai malformed response", extra={"context": {"model": model}})
                     continue
                 if isinstance(text, str) and text.strip():
                     self.model = model
@@ -308,15 +308,15 @@ class EuriExplainer:
         return None
 
 
-def make_ai_explainer(settings: Settings) -> AIExplainer | EuriExplainer:
-    if settings.ai_provider.lower() == "euri":
-        return EuriExplainer(settings)
+def make_ai_explainer(settings: Settings) -> AIExplainer | ChatCompletionsExplainer:
+    if settings.ai_provider.lower() in ("openrouter", "euri"):
+        return ChatCompletionsExplainer(settings)
     return AIExplainer(settings)
 
 
 async def explain_recommendation(settings: Settings, mission: MissionSummary, best: Itinerary,
                                  alternatives: dict[str, Itinerary], *,
-                                 ai: AIExplainer | EuriExplainer | None = None,
+                                 ai: AIExplainer | ChatCompletionsExplainer | None = None,
                                  tradeoff: Tradeoff | None = None) -> Explanation:
     rules = RuleExplainer().explain(mission, best, alternatives, tradeoff)
     if ai is None and not settings.ai_configured:

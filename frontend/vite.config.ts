@@ -16,6 +16,7 @@ export default defineConfig({
         manualChunks(id) {
           if (id.includes("leaflet")) return "map";
           if (id.includes("framer-motion")) return "motion";
+          if (id.includes("node_modules/three")) return "three"; // only the landing 3D scene, loaded lazily
           if (id.includes("node_modules")) return "vendor";
         },
       },

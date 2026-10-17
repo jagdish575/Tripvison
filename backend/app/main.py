@@ -8,9 +8,11 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 import asyncio
+from pathlib import Path
 
 from app.api.routes import auth, me, meta, missions, notifications, search
 from app.core.cache import init_cache
@@ -118,7 +120,29 @@ def create_app() -> FastAPI:
 
     for router in (meta.router, auth.router, me.router, missions.router, search.router, notifications.router):
         app.include_router(router, prefix="/api/v1")
+    _serve_frontend(app, Path(settings.static_dir))
     return app
+
+
+def _serve_frontend(app: FastAPI, static: Path) -> None:
+    """Single-process deployments: serve the built React app (frontend/dist copied to STATIC_DIR) from the API's
+    origin, so the session cookie and /api calls need no CORS. Registered after the API routes, which always win."""
+    index = static / "index.html"
+    if not index.is_file():
+        return
+    root = static.resolve()
+    if (static / "assets").is_dir():
+        app.mount("/assets", StaticFiles(directory=static / "assets"), name="assets")
+
+    @app.get("/{path:path}", include_in_schema=False)
+    async def spa(path: str):
+        if path == "api" or path.startswith("api/"):
+            return _error(404, "not_found", "Not found.")
+        candidate = (static / path).resolve()
+        if path and candidate.is_file() and root in candidate.parents:
+            return FileResponse(candidate)
+        # client-side routes (/plan, /results/…) all load the app shell; never cache it so deploys show up at once
+        return FileResponse(index, headers={"Cache-Control": "no-cache"})
 
 
 app = create_app()

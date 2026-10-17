@@ -6,15 +6,16 @@ type Variant = "primary" | "secondary" | "ghost" | "inverse";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold tracking-[-0.005em] rounded-sm " +
-  "transition-[background-color,border-color,color,transform] duration-150 ease-out active:translate-y-px " +
-  "disabled:cursor-not-allowed disabled:opacity-55 disabled:active:translate-y-0 select-none";
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold tracking-[-0.005em] rounded-[10px] " +
+  "transition-[background-color,background-position,border-color,color,transform,box-shadow] duration-300 ease-out active:translate-y-px " +
+  "disabled:cursor-not-allowed disabled:opacity-55 disabled:active:translate-y-0 disabled:hover:translate-y-0 select-none";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-blue text-white hover:bg-blue-ink shadow-[var(--shadow-press)]",
-  secondary: "bg-surface text-fg border border-line-strong hover:border-subtle hover:bg-paper",
+  primary: "bg-night btn-shine text-white bg-[position:0%_50%] hover:bg-[position:100%_50%] hover:-translate-y-0.5 " +
+    "shadow-[var(--shadow-glow)] hover:shadow-[0_14px_34px_-10px_rgb(240_100_63_/_0.55)]",
+  secondary: "bg-surface text-fg border border-line-strong hover:border-coral/40 hover:bg-coral-wash hover:-translate-y-0.5",
   ghost: "text-fg hover:bg-paper-2",
-  inverse: "bg-white text-ink hover:bg-paper-2",
+  inverse: "bg-white text-ink btn-shine hover:-translate-y-0.5 shadow-[0_10px_30px_-12px_rgb(0_0_0_/_0.45)]",
 };
 
 const sizes: Record<Size, string> = {

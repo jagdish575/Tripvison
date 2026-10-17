@@ -63,7 +63,7 @@ export function HeroMissionBar() {
 
   return (
     <form onSubmit={submit} noValidate aria-label="Plan a mission" className="w-full">
-      <div className="overflow-hidden rounded-md border border-line-strong bg-surface shadow-[var(--shadow-float)]">
+      <div className="glass overflow-hidden rounded-2xl shadow-[var(--shadow-lift)] ring-1 ring-coral/10 transition-shadow duration-300 focus-within:ring-2 focus-within:ring-coral/30">
         <div className="grid grid-cols-2 divide-line md:grid-cols-[1.15fr_1.15fr_1fr] md:divide-x lg:grid-cols-[1.1fr_1.1fr_1fr_1fr_0.75fr_0.95fr_auto]">
           <Cell label="From" htmlFor="hero-origin" error={fieldError("origin")} className="border-b border-line lg:border-b-0">
             <LocationInput id="hero-origin" value={draft.origin} onChange={(v) => set("origin", v)} placeholder="City or airport"
@@ -100,7 +100,7 @@ export function HeroMissionBar() {
         </div>
       </div>
       <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-[13px] text-muted">
-        <button type="button" onClick={moreConstraints} className="inline-flex items-center gap-1.5 font-medium text-fg hover:text-blue">
+        <button type="button" onClick={moreConstraints} className="inline-flex items-center gap-1.5 font-medium text-fg transition-colors hover:text-coral">
           <SlidersHorizontal className="size-3.5" aria-hidden />
           Venue, buffer, hotel and more constraints
         </button>
